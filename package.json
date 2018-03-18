@@ -1,0 +1,25 @@
+{
+  "name": "warren",
+  "version": "0.0.1",
+  "description": "npm warren ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "commander",
+    "warren"
+  ],
+  "bin": {
+    "warren": "./bin/index.js"
+  },
+  "author": "penouc",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "commander": "^2.15.0",
+    "iconv-lite": "^0.4.19",
+    "inquirer": "^5.1.0",
+    "urllib": "^2.26.0"
+  }
+}
