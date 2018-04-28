@@ -1,23 +1,30 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 
-const warren = require("commander");
+const stocky = require("commander");
 const chalk = require("chalk");
+const _ = require("lodash");
 
 const { req, reqByCode } = require("../src/http");
 
-warren
-  .version("0.0.1")
-  .option("-c, --code [code]", "港股的代码")
-  .option("-h, --http", "request ip.sb")
-  .parse(process.argv);
+stocky.version("0.0.1").usage("<command> [options]");
 
-// console.log(chalk.red("you ordered a pizza with:"));
-if (warren.http) {
-  req();
-}
-if (warren.code) {
-  reqByCode(warren.code).then(res => {
-    console.log(chalk.red(res));
+stocky
+  .command("code [code]")
+  .alias("m")
+  .description("创建新的模块")
+  // .option("-c, --code [code]", "港股的代码")
+  // .option("-h, --http", "request ip.sb")
+  // .option("-a, --name [moduleName]", "模块名称")
+  .action(code => {
+    console.log(chalk.red("Hello World"));
+    if (code) {
+      req(code);
+    }
+    if (code) {
+      reqByCode(code).then(res => {
+        chalk.red(res);
+      });
+    }
   });
-}
-// console.log("  - %s cheese", warren.cheese);
+
+stocky.parse(process.argv);
